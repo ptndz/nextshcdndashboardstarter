@@ -1,4 +1,5 @@
 import { Icons } from '@/components/icons';
+import { z } from 'zod';
 
 export interface NavItem {
   title: string;
@@ -62,4 +63,36 @@ export interface Media {
   path: string;
   createAt: string;
   updateAt: string;
+}
+export interface Content {
+  [key: string]: any;
+  id?: number;
+  createAt?: string | null;
+  updateAt?: string | null;
+  deletedAt?: string | null;
+}
+export interface Role extends Content {
+  id: number;
+  createAt: string;
+  updateAt: string;
+  deletedAt: string;
+  name: string;
+  root: boolean;
+  permissions?: string[];
+  users?: User[];
+}
+export const relationSingleZodObject = z.string();
+
+export type RelationContentArrayUpdate = {
+  $add?: Array<string>;
+  $clear?: Array<string>;
+};
+export interface Permission {
+  id: number;
+  resource: string;
+  value: string;
+  role_id: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string;
 }

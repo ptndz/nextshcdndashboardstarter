@@ -1,6 +1,7 @@
 import { auth } from '@/auth';
 import Providers from '@/components/layout/providers';
 import { Toaster } from '@/components/ui/toaster';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import '@uploadthing/react/styles.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -25,8 +26,10 @@ export default async function RootLayout({
       <body className={`${inter.className} overflow-hidden `}>
         <NextTopLoader showSpinner={false} />
         <Providers session={session}>
-          <Toaster />
-          {children}
+          <TooltipProvider delayDuration={50}>
+            <Toaster />
+            {children}
+          </TooltipProvider>
         </Providers>
       </body>
     </html>

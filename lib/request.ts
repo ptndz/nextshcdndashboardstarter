@@ -114,7 +114,6 @@ export const createRequest = async <T>(
       return response;
     }
   } catch (e: any) {
-    console.error(e);
     let errorMessage = '';
 
     if (!options?.disableErrorNotification) {
@@ -154,7 +153,6 @@ export const Get = async <T>(
   options?: RequestOptions
 ): Promise<T> => {
   const response = await createRequest('GET', url, null, options);
-  console.log(response);
 
   return response as T;
 };

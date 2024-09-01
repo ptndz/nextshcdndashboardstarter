@@ -105,6 +105,7 @@ const authConfig = {
         return token;
       }
       const accessTokenExpires = token.accessTokenExpires as unknown as number;
+
       if (Date.now() < accessTokenExpires) {
         return token;
       }
