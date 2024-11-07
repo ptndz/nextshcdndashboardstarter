@@ -16,17 +16,20 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table';
-import { Input } from './input';
+import { Role } from '@/types';
 import { Button } from './button';
+import { Input } from './input';
 import { ScrollArea, ScrollBar } from './scroll-area';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchKey: string;
+  roles: Role[];
 }
 
 export function DataTable<TData, TValue>({
+  roles,
   columns,
   data,
   searchKey
@@ -80,9 +83,20 @@ export function DataTable<TData, TValue>({
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
+                      {cell.column.id === 'image' ? (
+                        <img
+                          src={cell.getValue() as string}
+                          alt="User image"
+                          className="h-10 w-10 rounded-full object-cover"
+                        />
+                      ) : cell.column.id === 'role_id' ? (
+                        roles.find((role) => role.id === cell.getValue())
+                          ?.name || (cell.getValue() as string)
+                      ) : (
+                        flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )
                       )}
                     </TableCell>
                   ))}

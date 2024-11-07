@@ -3,16 +3,18 @@ import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/ui/data-table';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
-import { User } from '@/constants/data';
+import {} from '@/constants/data';
+import { Role, User } from '@/types';
 import { Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { columns } from './columns';
 
 interface ProductsClientProps {
   data: User[];
+  roles: Role[];
 }
 
-export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
+export const UserClient: React.FC<ProductsClientProps> = ({ data, roles }) => {
   const router = useRouter();
 
   return (
@@ -30,7 +32,7 @@ export const UserClient: React.FC<ProductsClientProps> = ({ data }) => {
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="name" columns={columns} data={data} />
+      <DataTable searchKey="name" roles={roles} columns={columns} data={data} />
     </>
   );
 };

@@ -12,8 +12,11 @@ async function refreshAccessToken(token: JWT) {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'refresh-token': `Bearer ${token.refreshToken}`
-        }
+          Authorization: `Bearer ${token.accessToken}`
+        },
+        body: JSON.stringify({
+          refreshToken: token.refreshToken
+        })
       }
     );
     const refreshedTokens = await res.json();
