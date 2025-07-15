@@ -1,6 +1,7 @@
 import {
   AlertTriangle,
   ArrowRight,
+  Bot,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -17,6 +18,7 @@ import {
   LogIn,
   LucideIcon,
   LucideProps,
+  Monitor,
   Moon,
   MoreVertical,
   Pizza,
@@ -62,6 +64,8 @@ export const Icons = {
   moon: Moon,
   laptop: Laptop,
   shieldCheck: ShieldCheck,
+  bot: Bot,
+  builder: Monitor,
 
   gitHub: ({ ...props }: LucideProps) => (
     <svg

@@ -130,6 +130,12 @@ export const navItems: NavItem[] = [
     label: 'user'
   },
   {
+    title: 'Bot',
+    href: '/dashboard/bot',
+    icon: 'bot',
+    label: 'bot'
+  },
+  {
     title: 'Employee',
     href: '/dashboard/employee',
     icon: 'employee',
@@ -146,6 +152,12 @@ export const navItems: NavItem[] = [
     href: '/dashboard/kanban',
     icon: 'kanban',
     label: 'kanban'
+  },
+  {
+    title: 'Builder',
+    href: '/dashboard/builder',
+    icon: 'builder',
+    label: 'builder'
   },
   {
     title: 'Roles & Permissions',
